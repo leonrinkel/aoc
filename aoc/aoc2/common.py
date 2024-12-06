@@ -1,14 +1,11 @@
-import csv
-
 from aoc.common import Input
 
 def parse_input():
     with Input(__file__) as file:
-        return list(csv.reader(
-            file,
-            delimiter=' ',
-            skipinitialspace=True,
-        ))
+        return [
+            [int(n) for n in l.split(' ')]
+            for l in file.readlines()
+        ]
 
 def safe(row):
     ascending = row[0] < row[-1]

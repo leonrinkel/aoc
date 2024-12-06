@@ -9,10 +9,8 @@ def aoc3_part2():
             r'(do\(\)|don\'t\(\)|mul\((\d{1,3}),(\d{1,3})\))',
             file.read()
         ):
-            if op == 'do()':
-                active = 1
-            elif op == "don't()":
-                active = 0
-            else:
+            if a and b:
                 summ += int(a) * int(b) * active
+            else:
+                active = op == 'do()'
     return summ

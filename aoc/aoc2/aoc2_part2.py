@@ -7,7 +7,4 @@ def dampened(row):
     )
 
 def aoc2_part2():
-    return sum(
-        dampened([int(num) for num in row])
-        for row in parse_input()
-    )
+    return sum(map(dampened, parse_input()))

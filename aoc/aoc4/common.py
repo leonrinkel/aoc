@@ -1,11 +1,11 @@
 from aoc.common import parse_map
 
 def apply(data, fil, dx, dy):
-    for x, m in enumerate(fil):
-        for y, n in enumerate(m):
-            if n not in (' ', data[dx + x][dy + y]):
-                return 0
-    return 1
+    return all(
+        n in (' ', data[dx + x][dy + y])
+        for x, m in enumerate(fil)
+        for y, n in enumerate(m)
+    )
 
 def aoc4(filters):
     data, w, h = parse_map(__file__)
