@@ -30,12 +30,11 @@ def parse_map(path: str):
         ]
     return data, len(data), len(data[0])
 
-def benchmark(fn, iters, result_only = False):
+def benchmark(fn, iters):
     print(fn.__name__)
     print(f' result = {fn()}')
-    if result_only:
-        return
 
-    time = timeit.timeit(
-        'fn()', globals={'fn': fn}, number=iters)
-    print(f' speed = {iters/time:g} it/s', end='\n\n')
+    if iters > 0:
+        time = timeit.timeit(
+            'fn()', globals={'fn': fn}, number=iters)
+        print(f' speed = {iters/time:g} it/s', end='\n\n')
