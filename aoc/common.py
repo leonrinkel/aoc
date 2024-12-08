@@ -37,4 +37,9 @@ def benchmark(fn, iters):
     if iters > 0:
         time = timeit.timeit(
             'fn()', globals={'fn': fn}, number=iters)
-        print(f' speed = {iters/time:g} it/s', end='\n\n')
+        print(f' speed = {iters/time:g} it/s')
+
+    print()
+
+def print_map(data):
+    print('\n'.join([''.join(l) for l in data]))
